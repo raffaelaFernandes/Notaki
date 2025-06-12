@@ -5,51 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <script src="https://unpkg.com/phosphor-icons"></script>
     <title>Notaki</title>
 </head>
 
 <body>
-    <header>
-        <div>
-            <i class="ph-bold ph-list icon list"></i>
-            <i class="ph-bold ph-notepad icon"></i>
-            <h1>Notaki</h1>
-        </div>
-    </header>
-    <hr>
-    <main>
-
-        <nav>
+    <div class="container">
+        <header>
             <div>
-                <div id="nav-notas">
-                    <i class="ph-bold ph-lightbulb"></i>
-                    <a href="/index.html">Notas</a>
-                </div>
-                <div id="nav-marcadores">
-                    <i class="ph-bold ph-marker-circle"></i>
-                    <a href="/marcadores.html">Marcadores</a>
-                </div>
-                <div id="nav-lixeira">
-                    <i class="ph-bold ph-trash"></i>
-                    <a href="/lixeira.html">Lixeira</a>
-                </div>
+                <i class="ph-bold ph-list icon list" id="toggleSidebar"></i>
+                <i class="ph-bold ph-notepad icon"></i>
+                <h1>Notaki</h1>
             </div>
-        </nav>
+        </header>
+        <hr>
+        <main>
 
+            <nav>
+                <div class="sidebar" id="sidebar">
+                    <div id="nav-notas">
+                        <i class="ph-bold ph-lightbulb"></i>
+                        <a href="index.html">Notas</a>
+                    </div>
+                    <div id="nav-marcadores">
+                        <i class="ph-bold ph-marker-circle"></i>
+                        <a href="marcadores.html">Marcadores</a>
+                    </div>
+                    <div id="nav-lixeira">
+                        <i class="ph-bold ph-trash"></i>
+                        <a href="lixeira.html">Lixeira</a>
+                    </div>
+                </div>
+            </nav>
 
-        <div class="notepage">
-            <div class="add-tarefa">
-                <i class="ph ph-plus"></i>
-                <button id="input-hoje">Criar nota...</button>
-            </div>
-        </div>
+            <div class="conteudo">
+                <div class="controls">
+                    <div class="controls-container note-controls">
+                        <input type="text" id="inputPesquisa" placeholder="Buscar notas..." class="buscarInput">
+                        <div class="filtroGrupo">
+                            <select id="filtroSelect" class="filtro-select">
+                                <option value="todas">Todas notas</option>
+                                <option value="trabalho">Trabalho</option>
+                                <option value="pessoal">Pessoal</option>
+                                <option value="ideias">Ideias</option>
+                                <option value="lembrete">Lembrete</option>
+                            </select>
+                            <button id="addNota" class="add-btn">
+                                <i class="ph ph-plus"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="noteContainer" class="note-grid">
 
-    </main>
-    <footer>
+                </div>
+                <div id="emptyState" class="empty-state">
+                    <i class="ph ph-note"></i>
+                    <h3>Sem notas ainda</h3>
+                    <p>Adicione a sua primeira nota clicando em "adicionar"</p>
+                </div>
 
-    </footer>
+                <div id="addNoteModal" class="modal-overlay">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h3 class="modal-tit">Nova nota</h3>
+                            <button id="closeModal" class="modal-close">
+                                <i class="ph ph-x"></i>
+                            </button>
+                        </div>
+
+                        <form id="noteForm" class="modal-body">
+                            <div class="form-grupo">
+                                <label for="noteContent" class="form-label">Conteúdo</label>
+                                <textarea id="noteContent" class="form-input form-textarea" required></textarea>
+                            </div>
+                            <div class="form-grupo">
+                                <label class="form-label">Tags</label>
+                                <div class="tags-container">
+                                    <label class="tag-opt">
+                                        <input type="radio" name="noteTag" value="trabalho" class="tag-radio">
+                                        <span class="tag-label tag-trabalho">
+                                            <i class="ph ph-briefcase"></i> Trabalho
+                                        </span>
+                                    </label>
+                                    <label class="tag-opt">
+                                        <input type="radio" name="noteTag" value="pessoal" class="tag-radio" />
+                                        <span class="tag-label tag-personal">
+                                            <i class="ph ph-user"></i>Pessoal
+                                        </span>
+                                    </label>
+                                    <label class="tag-opt">
+                                        <input type="radio" name="noteTag" value="ideias" class="tag-radio" checked />
+                                        <span class="tag-label tag-ideias">
+                                            <i class="ph ph-lightbulb"></i> Ideias
+                                        </span>
+                                    </label>
+                                    <label class="tag-opt">
+                                        <input type="radio" name="noteTag" value="lembrete" class="tag-radio" />
+                                        <span class="tag-label tag-lembrete">
+                                            <i class="ph ph-bell"></i> Lembrete
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="add-btn" id="btn">Salvar nota</button>
+                        </form>
+                    </div>
+                </div>
+        </main>
+        <footer>
+        </footer>
+    </div>
 </body>
+<script src="script.js"></script>
 
 </html>

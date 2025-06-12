@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/phosphor-icons"></script>
-
-
-    <title>Document</title>
+    <title>Notaki</title>
 </head>
 
-<header>
+<body>
+    <header>
         <div>
             <i class="ph-bold ph-list icon list" id="toggleSidebar"></i>
             <i class="ph-bold ph-notepad icon"></i>
@@ -36,11 +35,15 @@
                 </div>
             </div>
         </nav>
+        <div id="lixeiraContainer" class="note-grid ">
+        </div>
+        <div id="emptyState" class="empty-state empty-trash">
+            <i class="ph ph-trash-simple"></i>
+            <p>Sua lixeira está vazia.</p>
+        </div>
 
-         <div id="marcadoresContainer" class="marcadores-container"></div>
-        
     </main>
 </body>
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 
 </html>
